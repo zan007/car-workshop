@@ -1,6 +1,5 @@
-// bower:scss
-@import "bower_components/bootstrap/scss/bootstrap.scss";
-// endbower
+@import 'fonts';
+@import 'vars';
 
 .browserupgrade {
   margin: 0.2em 0;
@@ -9,83 +8,111 @@
   padding: 0.2em 0;
 }
 
-/* Space out content a bit */
+ul, ol, dl {
+  margin: 0 auto;
+  padding: 0
+}
+
 body {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  font-family: $font;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-right: 1rem;
-  padding-left: 1rem;
+main {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(4, 95vh);
 }
 
-/* Custom page header */
-.header {
-  padding-bottom: 1rem;
-  border-bottom: .05rem solid #e5e5e5;
-}
+.common-section {
+  grid-column: 1 / 21;
 
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 3rem;
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 1.5rem;
-  color: #777;
-  border-top: .05rem solid #e5e5e5;
-}
-
-/* Customize container */
-@media (min-width: 48em) {
-  .container {
-    max-width: 46rem;
+  article {
+    max-width: 58.7rem;
+    height: 100%;
+    padding: 0 10px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(6, 1fr);
   }
 }
-.container-narrow > hr {
-  margin: 2rem 0;
-}
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: .05rem solid #e5e5e5;
-}
-.jumbotron .btn {
-  padding: .75rem 1.5rem;
-  font-size: 1.5rem;
-}
+.motto {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/motto-image.jpg');
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  grid-row: 1;
 
-/* Supporting marketing content */
-.marketing {
-  margin: 3rem 0;
-}
-.marketing p + h4 {
-  margin-top: 1.5rem;
-}
+  .motto-header {
+    grid-column: 10 / span 20;
+    grid-row: 3 / span 1;
+    font-size: 2.75rem;
+    font-family: $font-slab;
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 48em) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-right: 0;
-    padding-left: 0;
+    .marked {
+      color: $orange;
+    }
   }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 2rem;
+
+  .motto-subheader {
+    grid-column: 10 / span 20;
+    grid-row: 4 / span 1;
+    text-align: center;
   }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+}
+
+.services {
+  color: black;
+  background-color: white;
+  grid-row: 2;
+
+  .services-header {
+    grid-column: 1 / span 20;
+    grid-row: 1 / span 1;
+    justify-self: center;
+    align-self: end;
+    font-size: 2.25rem;
+    font-family: $font-slab;
+  }
+
+  .description {
+    grid-column: 6 / span 10;
+    text-align: center;
+    grid-row: 2 / span 1;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .services-list {
+    grid-column: 1 / span 21;
+    grid-row: 3 / span 4;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 262px 262px;
+
+    .service-tile {
+      background-color: $light-grey;
+      border: solid 2px #ececec;
+      display: grid;
+      grid-template-columns: 1fr;
+      padding: 5px;
+      grid-template-rows: 2fr 1fr 2fr;
+      align-items: center;
+      text-align: center;
+
+      .tile-header {
+        color: $orange;
+        grid-column: span 1;
+        grid-row: 2 / span 1;
+      }
+
+      .tile-description {
+        grid-column: span 1;
+        grid-row: 3 / span 1;
+      }
+    }
   }
 }

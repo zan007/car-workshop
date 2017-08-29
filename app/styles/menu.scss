@@ -1,0 +1,31 @@
+@import 'vars';
+
+.menu {
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 53px;
+  width: 100%;
+  position: fixed;
+  color: $grey;
+  font-size: 0.875rem;
+
+  ul {
+    display: grid;
+    grid-template-columns:  auto 120px 120px 120px 120px;
+    grid-template-rows: 1fr;
+    column-gap: 10px;
+    max-width: 58.7rem;
+    height: 100%;
+  }
+
+  .menu-item {
+    grid-row: span 1;
+    grid-column: span 1;
+    display: block;
+    justify-self: end;
+    align-self: center;
+
+    &:first-child {
+      grid-column: 2 / 1 span;
+    }
+  }
+}

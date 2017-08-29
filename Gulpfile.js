@@ -23,7 +23,7 @@ gulp.task('styles', () => {
     }).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.if(dev, $.sourcemaps.write()))
-    .pipe(gulp.dest('.tmp/styles'))
+    .pipe($.if(dev, gulp.dest('.tmp/styles'), gulp.dest('dist/styles')))
     .pipe(reload({stream: true}));
 });
 
@@ -33,7 +33,7 @@ gulp.task('scripts', () => {
     .pipe($.if(dev, $.sourcemaps.init()))
     .pipe($.babel())
     .pipe($.if(dev, $.sourcemaps.write('.')))
-    .pipe(gulp.dest('.tmp/scripts'))
+    .pipe($.if(dev, gulp.dest('.tmp/scripts'), gulp.dest('dist/scripts')))
     .pipe(reload({stream: true}));
 });
 
@@ -80,8 +80,7 @@ gulp.task('images', () => {
 });
 
 gulp.task('fonts', () => {
-  return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
-    .concat('app/fonts/**/*'))
+  return gulp.src('app/fonts/**/*')
     .pipe($.if(dev, gulp.dest('.tmp/fonts'), gulp.dest('dist/fonts')));
 });
 
@@ -110,10 +109,11 @@ gulp.task('serve', () => {
       notify: false,
       port: 9000,
       server: {
-        baseDir: ['.tmp'],
+        baseDir: ['.tmp', 'app'],
         routes: {
           '/bower_components': 'bower_components'
-        }
+        },
+        files: ['*.*']
       }
     });
 
