@@ -20,20 +20,67 @@ body {
 main {
   display: grid;
   grid-template-columns: repeat(20, 1fr);
-  grid-template-rows: repeat(4, 95vh);
+  grid-template-rows: 95vh 95vh 70vh 70vh 90vh 50vh;
 }
 
 .common-section {
   grid-column: 1 / 21;
 
   article {
-    max-width: 58.7rem;
+    max-width: 72rem;
     height: 100%;
     padding: 0 10px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(20, 1fr);
     grid-template-rows: repeat(6, 1fr);
+
+    header {
+      font-size: 2.25rem;
+      font-family: $font-slab;
+    }
+
+    .common-header {
+      grid-column: 1 / span 20;
+      grid-row: 1 / span 1;
+      justify-self: center;
+      align-self: end;
+    }
+
+    .description {
+      grid-column: 1 / span 20;
+      text-align: center;
+      grid-row: 2 / span 1;
+      justify-self: center;
+      align-self: center;
+    }
+
+    &.full-width {
+      padding: 0;
+      max-width: 100%;
+    }
+  }
+
+  .common-tile {
+    background-color: $light-grey;
+    border: solid 2px #ececec;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 5px;
+    grid-template-rows: 2fr 1fr 2fr;
+    align-items: center;
+    text-align: center;
+
+    .tile-header {
+      color: $orange;
+      grid-column: span 1;
+      grid-row: 2 / span 1;
+    }
+
+    .tile-description {
+      grid-column: span 1;
+      grid-row: 3 / span 1;
+    }
   }
 }
 
@@ -46,7 +93,7 @@ main {
   grid-row: 1;
 
   .motto-header {
-    grid-column: 10 / span 20;
+    grid-column: 10 / span 11;
     grid-row: 3 / span 1;
     font-size: 2.75rem;
     font-family: $font-slab;
@@ -57,7 +104,7 @@ main {
   }
 
   .motto-subheader {
-    grid-column: 10 / span 20;
+    grid-column: 10 / span 11;
     grid-row: 4 / span 1;
     text-align: center;
   }
@@ -68,51 +115,99 @@ main {
   background-color: white;
   grid-row: 2;
 
-  .services-header {
-    grid-column: 1 / span 20;
-    grid-row: 1 / span 1;
-    justify-self: center;
-    align-self: end;
-    font-size: 2.25rem;
-    font-family: $font-slab;
-  }
-
-  .description {
-    grid-column: 6 / span 10;
-    text-align: center;
-    grid-row: 2 / span 1;
-    justify-self: center;
-    align-self: center;
-  }
-
   .services-list {
-    grid-column: 1 / span 21;
+    grid-column: 1 / span 20;
     grid-row: 3 / span 4;
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 262px 262px;
+  }
+}
 
-    .service-tile {
-      background-color: $light-grey;
-      border: solid 2px #ececec;
-      display: grid;
-      grid-template-columns: 1fr;
-      padding: 5px;
-      grid-template-rows: 2fr 1fr 2fr;
-      align-items: center;
-      text-align: center;
+.about {
+  background-color: #1c1c18;
+  color: white;
 
-      .tile-header {
-        color: $orange;
-        grid-column: span 1;
-        grid-row: 2 / span 1;
-      }
+  .about-description {
+    grid-column: 1 / span 10;
+    grid-row: 2 / span 7;
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+    grid-column-rows: repeat(6, 1fr);
+    color: rgba(255, 255, 255, 0.5);
+    padding-right: 20px;
 
-      .tile-description {
-        grid-column: span 1;
-        grid-row: 3 / span 1;
-      }
+    header {
+      grid-column: 2 / span 3;
+      grid-row: span 1;
+      align-self: center;
+      color: white;
     }
+
+    .subheader, p, img {
+      grid-column: 2 / span 3;
+      grid-row: span 1;
+    }
+
+    p, img {
+      font-size: 0.875rem;
+    }
+
+    .subheader {
+      width: 65%;
+      font-size: 1rem;
+    }
+  }
+
+  .about-img {
+    grid-column: 11 / span 21;
+    grid-row: 1 / span 7;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/about-image.jpg');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .about-header {
+    grid-column: 1 / span 11;
+    grid-row: 1 / span 4;
+  }
+
+  .about-subheader {
+    grid-column: 1 / span 11;
+    grid-row: 4 / span 7;
+  }
+}
+
+.benefits {
+  color: black;
+  background-color: white;
+  grid-row: 4;
+
+  .benefits-list {
+    grid-column: 1 / span 20;
+    grid-row: 3 / span 4;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 262px 262px;
+  }
+}
+
+.contact {
+  grid-row: 5;
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('../images/road2.jpg');
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+}
+
+.map {
+  grid-row: 6;
+
+  #embeded-map {
+    grid-column: 1 / span 20;
+    grid-row: 1 / span 6;
   }
 }
