@@ -26,6 +26,8 @@
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
+
+
   </head>
   <body>
     <!--[if IE]>
@@ -62,12 +64,10 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0jvl38Z2rOang2eZtWyKtiJLdXOFIj58" type="text/javascript"></script>
-
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <script src="scripts/maps.js"></script>
     <!-- endbuild -->
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0jvl38Z2rOang2eZtWyKtiJLdXOFIj58&callback=initMap" async defer type="text/javascript"></script>
   </body>
 </html>
