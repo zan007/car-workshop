@@ -10,7 +10,7 @@
 
   ul {
     display: grid;
-    grid-template-columns:  auto 120px 120px 120px 120px;
+    grid-template-columns:  auto repeat(5, 120px);
     grid-template-rows: 1fr;
     column-gap: 10px;
     max-width: 58.7rem;
